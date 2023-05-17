@@ -1,0 +1,8 @@
+.tablecs {
+  background-color: #16171a; 
+  cursor: "pointer";
+   font-family: "Montserrat"; 
+}
+.tablecs:hover {
+  background-color: "#131111";
+}
