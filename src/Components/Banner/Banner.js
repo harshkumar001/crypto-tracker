@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, Container, Typography } from "@material-ui/core";
 import Carousel from "./Carousel";
 

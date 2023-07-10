@@ -14,6 +14,7 @@ import React from "react";
 import { light } from "@material-ui/core/styles/createPalette";
 import { grey } from "@material-ui/core/colors";
 import { CryptoState } from "../CryptoContext";
+import AuthModel from "./Authentication/AuthModel";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+            <AuthModel/>
           </Toolbar>
         </Container>
       </AppBar>

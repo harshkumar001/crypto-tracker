@@ -46,12 +46,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function CoinsTable() {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
+  
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
   const navigate = useNavigate();
 
@@ -64,14 +63,7 @@ export default function CoinsTable() {
     },
   });
 
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    console.log(data);
 
-    setCoins(data);
-    setLoading(false);
-  };
 
   useEffect(() => {
     fetchCoins();
@@ -85,6 +77,7 @@ export default function CoinsTable() {
         coin.symbol.toLowerCase().includes(search)
     );
   };
+  const count = Math.ceil((handleSearch?.length || 0) / 10);
 
   const classes = useStyles();
   return (
@@ -196,7 +189,8 @@ export default function CoinsTable() {
 
         {/* Comes from @material-ui/lab */}
         <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
+          // count={(handleSearch()?.length / 10).toFixed(0)}
+          count={count}
           style={{
             padding: 20,
             width: "100%",

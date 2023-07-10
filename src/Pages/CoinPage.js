@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     marginBottom: 20,
     fontFamily: "Montserrat",
+    // width: "100%",
   },
   description: {
     width: "100%",
@@ -75,7 +76,7 @@ const CoinPage = () => {
 
     setCoin(data);
   };
-  console.log(coin);
+  // console.log(coin);
 
   useEffect(() => {
     fetchCoin();
