@@ -15,11 +15,12 @@ import { light } from "@material-ui/core/styles/createPalette";
 import { grey } from "@material-ui/core/colors";
 import { CryptoState } from "../CryptoContext";
 import AuthModel from "./Authentication/AuthModel";
+import UserSidebar from "./Authentication/UserSidebar";
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const {currency, setCurrency} = CryptoState();
+  const {currency, setCurrency, user} = CryptoState();
   
 
   const darkTheme = createTheme({
@@ -57,7 +58,7 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
-            <AuthModel/>
+            {user ? <UserSidebar/> : <AuthModel/>}
           </Toolbar>
         </Container>
       </AppBar>

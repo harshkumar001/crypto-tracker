@@ -36,12 +36,19 @@ const Signup = ({handleClose}) => {
             type: "success",
         });
         handleClose();
-    } catch(error) {}
+    } catch(error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
   };
 
   return (
     <Box
-      style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "3px" }}
+      style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "30px" }}
     >
       <TextField
         variant="outlined"
